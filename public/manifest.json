@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MailTester",
+  "name": "Mailtester is a free tool to check if an email address is valid and really exists.",
   "icons": [
     {
       "src": "favicon.ico",
