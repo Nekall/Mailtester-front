@@ -14,6 +14,7 @@ const Home = () => {
     "In any case, no e-mail address is registered in the server.",
     "",
     "",
+    "In progress...",
   ]);
 
   return (
