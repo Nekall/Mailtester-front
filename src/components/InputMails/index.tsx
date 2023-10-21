@@ -1,9 +1,7 @@
 import { useState } from 'react';
-
-// Helpers
+import { saveAs } from 'file-saver';
 import isValidEmail from '../../helpers/isValidEmail';
 
-// Styles
 import "./styles.css";
 
 const InputMails = () => {
@@ -24,13 +22,19 @@ const InputMails = () => {
         setIsStart(true);
     }
 
+    const downloadValidEmails = () => {
+        const validEmailsText = validEmails.join(',');
+
+        const blob = new Blob([validEmailsText], { type: 'text/plain' });
+        saveAs(blob, 'valid_emails.txt');
+    }
+
     return (
         isStart ?
             <div className="__input_mails_result">
-                <textarea className="__valid" rows={10} cols={25} value={validEmails.join(',')}>
-                </textarea>
-                <textarea className="__invalid" rows={10} cols={25} defaultValue={invalidEmails.join(',')}>
-                </textarea>
+                <textarea className="__valid" rows={10} cols={25} value={validEmails.join(',')}></textarea>
+                <textarea className="__invalid" rows={10} cols={25} defaultValue={invalidEmails.join(',')}></textarea>
+                <button onClick={downloadValidEmails}>Download Valid Emails List</button>
                 <button onClick={() => {
                     setIsStart(false);
                     setEmails('');
@@ -44,11 +48,10 @@ const InputMails = () => {
                     placeholder="email1@email.com, email2@email.com, ..."
                     onChange={e => setEmails(e.target.value)}
                     value={emails}
-                >
-                </textarea>
+                ></textarea>
                 <button onClick={() => checkMails()}>Start</button>
             </div>
-    )
+    );
 }
 
 export default InputMails;
