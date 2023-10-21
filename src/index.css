@@ -37,7 +37,7 @@ textarea  {
   margin-bottom: -2px;
 }
 
-textarea :focus {
+textarea:focus {
   outline: none;
 }
 

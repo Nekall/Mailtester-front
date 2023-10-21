@@ -1,3 +1,13 @@
 .__input_mails{
+}
 
+.__input_mails_result {
+    .__valid  {
+        border: solid 1px #24e043;
+        margin-right: 1px;
+      }
+
+      .__invalid {
+        border: solid 1px #ca2727;
+      }
 }
